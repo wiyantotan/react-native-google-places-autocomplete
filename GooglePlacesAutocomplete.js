@@ -471,11 +471,11 @@ export default class GooglePlacesAutocomplete extends Component {
 
         if (request.status === 200) {
           const responseJSON = JSON.parse(request.responseText);
-          if (typeof responseJSON.candidates !== 'undefined') {
+          if (typeof responseJSON.predictions !== 'undefined') {
             if (this._isMounted === true) {
               const results = this.props.nearbyPlacesAPI === 'GoogleReverseGeocoding'
-                ? this._filterResultsByTypes(responseJSON.candidates, this.props.filterReverseGeocodingByTypes)
-                : responseJSON.candidates;
+                ? this._filterResultsByTypes(responseJSON.predictions, this.props.filterReverseGeocodingByTypes)
+                : responseJSON.predictions;
 
               this._results = results;
               this.setState({
