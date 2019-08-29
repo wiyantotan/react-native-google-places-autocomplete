@@ -78,6 +78,7 @@ export default class GooglePlacesAutocomplete extends Component {
   _isMounted = false;
   _results = [];
   _requests = [];
+  typingTimeout = null;
 
   constructor (props) {
     super(props);
@@ -517,7 +518,9 @@ export default class GooglePlacesAutocomplete extends Component {
   }
 
   _onChangeText = (text) => {
-    this._request(text);
+      clearTimeout(this.typingTimeout);
+
+      this.typingTimeout = setTimeout(() => this._request(text), 500);
 
     this.setState({
       text: text,
