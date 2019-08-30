@@ -107,6 +107,10 @@ export default class GooglePlacesAutocomplete extends Component {
       }
     }
 
+    results.sort((a,b) => {
+        return (a.distance_meters != undefined)? a.distance_meters - b.distance_meters : 0;
+    });
+
     res = res.map(place => ({
       ...place,
       isPredefinedPlace: true
