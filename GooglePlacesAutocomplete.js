@@ -55,8 +55,6 @@ const defaultStyles = {
   powered: {},
   listView: {},
   row: {
-    padding: 13,
-    height: 44,
     flexDirection: 'row',
   },
   separator: {
