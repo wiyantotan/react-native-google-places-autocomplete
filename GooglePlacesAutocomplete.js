@@ -497,7 +497,7 @@ export default class GooglePlacesAutocomplete extends Component {
       if (this.props.preProcess) {
         text = this.props.preProcess(text);
       }
-      request.open('GET', 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?&inputtype=textquery&input=' + encodeURIComponent(text) + '&' + Qs.stringify(this.props.query));
+      request.open('GET', 'https://maps.googleapis.com/maps/api/place/autocomplete/json?&input=' + encodeURIComponent(text) + '&' + Qs.stringify(this.props.query));
       if (this.props.query.origin !== null) {
          request.setRequestHeader('Referer', this.props.query.origin)
       }
